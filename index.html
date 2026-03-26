@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Leverage sparse visual information and contextual knowledge to extract sequences of stroke techniques in racket sports videos for tactical analysis.">
+  <meta name="keywords" content="Chart, Visualization, MLLM, VLM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Multimodal LLMs Reliable Chart Data Extractors: A Benchmark and Training Framework</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation" style="display: none;">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable" style="display: none;">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="">
+              1
+            </a>
+            <a class="navbar-item" href="">
+              2
+            </a>
+            <a class="navbar-item" href="">
+              3
+            </a>
+            <a class="navbar-item" href="">
+              4
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">📈🔢Making Multimodal LLMs Reliable Chart Data Extractors: A Benchmark and Training Framework</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://he-yc.github.io">Yuchen He</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="">Peizhi Ying</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="https://13lychee.github.io/">Liqi Cheng</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="">Kuilin Peng</a><sup>2</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=TjElz7AAAAAJ">Yuan Tian</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="https://dengdazhen.github.io/">Dazhen Deng</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block">
+                <a href="http://www.ycwu.org/">Yingcai Wu</a><sup>1</sup>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Zhejiang University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Guangdong University of Technology</span>
+            </div>
+
+            <div class="is-size-4 publication-authors">
+              <span class="author-block">CHI 2026</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="static/pdf/chi26-exchart.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/He-yc/ExChart-Bench" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code & Data</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Chart data extraction, which reverse-engineers data tables from chart images, is essential for reproducibility, analysis, retrieval, and redesign. Existing interactive tools are reliable but tedious, and mixed-initiative systems, while more efficient, lack generalizability. Recent multimodal large language models (MLLMs) offer a unified interface for chart interpretation, yet their ability to extract accurate data tables, especially without visible labels, remains unclear. We build a benchmark featuring diverse real-world charts without data labels to evaluate this capability. Results show that, while current MLLMs reliably reconstruct table structures, they struggle with precise value recovery. To address this, we revisit chart data extraction from a human-centered perspective and argue that extraction should follow a progressive learning process similar to how people read charts. Our training framework substantially improves numerical accuracy, achieving state-of-the-art performance with a 7B-parameter model. A user study further shows that our model effectively supports mixed-initiative workflows for reliable chart data extraction.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      
+      <div class="content has-text-centered">
+        <video id="replay-video" controls preload playsinline width="75%">
+          <source src="static/videos/video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h3 class="title is-3">Background: Chart Data Extraction</h3>
+          <h3 class="title is-4"></h3>
+          <div class="content has-text-justified">
+            <p>
+              Page under construction...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{he2026exchart,
+  author = {He, Yuchen and Ying, Peizhi and Cheng, Liqi and Peng, Kuilin and Tian, Yuan and Deng, Dazhen and Wu, Yingcai},
+  title = {Making Multimodal LLMs Reliable Chart Data Extractors: A Benchmark and Training Framework},
+  year = {2026},
+  isbn = {9798400722783},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3772318.3790721},
+  doi = {10.1145/3772318.3790721},
+  booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  series = {CHI '26}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              The style of this website is adapted from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
